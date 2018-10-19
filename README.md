@@ -1,4 +1,4 @@
-# gemini-junit
+# gemini-junit-reporter
 JUnit report for Gemini
 
 ## Installation
