@@ -22,12 +22,17 @@ module.exports = function(gemini, options) {
     gemini.on('startRunner', function(runner) {
         runner.on('beginState', function(data) {
             var name = getTestName(data);
-            testCases[name] = suite.testCase().name(name);
+            testCases[name] = suite.testCase()
+                .name(name)
+                .className(name);
         });
 
         runner.on('skipState', function(data) {
             var name = getTestName(data);
-            testCases[name] = suite.testCase().name(name).skipped();
+            testCases[name] = suite.testCase()
+                .name(name)
+                .className(name)
+                .skipped();
             finishedTests.push(name);
         });
 
