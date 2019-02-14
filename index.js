@@ -55,7 +55,9 @@ module.exports = function(gemini, options) {
 
             function failTest(data, name) {
                 name = name || getTestName(data);
-                testCases[name].error(data.message);
+                if(testCases[name] && testCases[name].error) {
+                    testCases[name].error(data.message);
+                }
             }
 
             function failAllSuiteTests(data) {
